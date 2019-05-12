@@ -8,24 +8,24 @@ namespace Musicalog.Service
 {
     public static class AlbumOrderingFactory
     {
-        private static Dictionary<string, Func<VAlbums, string>> Factory;
+        private static Dictionary<string, Func<VAlbums, object>> Factory;
 
         private static void InitializeIfNecessary()
         {
             if (Factory == null)
             {
-                Factory = new Dictionary<string, Func<VAlbums, string>>();
-                Factory["id"] = va => va.Id.ToString();
+                Factory = new Dictionary<string, Func<VAlbums, object>>();
+                Factory["id"] = va => va.Id;
                 Factory["name"] = va => va.Name.ToLower();
                 Factory["artist"] = va => va.Artist.ToLower();
                 Factory["label"] = va => va.Label.ToLower();
                 Factory["type"] = va => va.AlbumType.ToLower();
-                Factory["stock"] = va => va.Stock.ToString();
+                Factory["stock"] = va => va.Stock;
             }
         }
 
 
-        internal static Func<VAlbums, string> GetFunc(string orderby)
+        internal static Func<VAlbums, object> GetFunc(string orderby)
         {
             InitializeIfNecessary();
             return Factory[orderby.ToLower().Split('-')[0]];

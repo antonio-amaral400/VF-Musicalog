@@ -16,14 +16,14 @@
 	- AlbumType Id was considered it could would only reach low numbers so it was chosen the value tinyint (maximum value of tinyint is 255).
 	- It was assumed that a representation of the ordering is all that is needed, ignoring the UX part. The "a" and "d" by the side of the columns represents which column is being ordered and if the order is ascending or descending respectively.
 	
-# Notes:
+#Notes:
 	- The InsertOrUpdate screen's design was made to underline that I know the basics of bootstrap and not for aesthetic reasons.
 	- There is a config in WCF that lets the admin choose if the data is retrieved as is from EntityFramework default behaviour or use cache. I still thought about implementing a timeout in cache but, honestly, I did not think it would make a positive influence in the test.
 	- In order to create the initial database there is a file inside the project GenericProjectTests called 'SQL Initializer.txt'.
 	- I did not upgrade any of the scripts or css's of the project (namely bootstrap).
 	- The key requested for the number of results in a page is called NumberOfAlbumsPerPage.
 	
-# Assumpções:
+**Assumpções:**
 	- Não há a noção de user / login.
 	- Por consequência o catálogo não é ao user mas sim partilhado.
 	- Foi assumido que tanto artistas como nomes dos álbuns podiam ter caracteres especiais (nomeadamente acentos) necessitando de campos nvarchar em BD.

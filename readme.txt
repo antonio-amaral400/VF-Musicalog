@@ -1,4 +1,4 @@
-Assumptions:
+<b>Assumptions:</b>
 	- There is no concept of user / login.
 	- Hence, the catalog is not for each user but generic / public.
 	- It was assumed that artists and the album names could contain special characters (namely accents) making those fields nvarchar.

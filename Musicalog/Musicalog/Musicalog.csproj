@@ -154,7 +154,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AlbumViewModel.cs" />
-    <Compile Include="Models\ListViewModel.cs" />
+    <Compile Include="Models\AlbumListViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\Service\Reference.cs">
       <AutoGen>True</AutoGen>

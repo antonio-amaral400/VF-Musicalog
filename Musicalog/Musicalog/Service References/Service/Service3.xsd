@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Musicalog.Service.Responses" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Musicalog.Service.Responses" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:50034/Service.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/DataAccessLayer" />
+  <xs:import schemaLocation="http://localhost:50034/Service.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="GetListAlbumsResponse">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/DataAccessLayer" minOccurs="0" name="Albums" nillable="true" type="q1:ArrayOfVAlbums" />
+      <xs:element minOccurs="0" name="TotalNumberOfPages" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetListAlbumsResponse" nillable="true" type="tns:GetListAlbumsResponse" />
+  <xs:complexType name="GetBasicAlbumListsResponse">
+    <xs:sequence>
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AlbumTypes" nillable="true" type="q2:ArrayOfKeyValueOfintstring" />
+      <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Artists" nillable="true" type="q3:ArrayOfKeyValueOfintstring" />
+      <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Labels" nillable="true" type="q4:ArrayOfKeyValueOfintstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetBasicAlbumListsResponse" nillable="true" type="tns:GetBasicAlbumListsResponse" />
+  <xs:complexType name="GetSpecificAlbumResponse">
+    <xs:sequence>
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/DataAccessLayer" minOccurs="0" name="Album" nillable="true" type="q5:Albums" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetSpecificAlbumResponse" nillable="true" type="tns:GetSpecificAlbumResponse" />
+</xs:schema>

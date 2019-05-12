@@ -1,0 +1,159 @@
+﻿@model Musicalog.Models.AlbumListViewModel
+
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    string orderbyId = "id-a";
+    if (Model.OrderedBy == "id-a")
+    {
+        orderbyId = "id-d";
+    }
+
+    string orderbyName = "name-a";
+    if (Model.OrderedBy == "name-a")
+    {
+        orderbyName = "name-d";
+    }
+
+    string orderbyArtist = "artist-a";
+    if (Model.OrderedBy == "artist-a")
+    {
+        orderbyArtist = "artist-d";
+    }
+
+    string orderbyLabel = "label-a";
+    if (Model.OrderedBy == "label-a")
+    {
+        orderbyLabel = "label-d";
+    }
+
+    string orderbyType = "type-a";
+    if (Model.OrderedBy == "type-a")
+    {
+        orderbyType = "type-d";
+    }
+
+    string orderbyStock = "stock-a";
+    if (Model.OrderedBy == "stock-a")
+    {
+        orderbyStock = "stock-d";
+    }
+
+
+}
+<style>
+    span.paging {
+        display: inline-block;
+        min-width: 20px;
+    }
+    th {
+        min-width: 40px;
+    }
+</style>
+
+<h2>List</h2>
+
+<p>
+    @Html.ActionLink("Create New", "InsertOrUpdate")
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink("Id", "List", new { orderby = orderbyId, page = 1 })
+            @if (Model.OrderedBy.StartsWith("id"))
+            {
+                <span>@Model.OrderedBy.Split('-')[1]</span>
+            }
+        </th>
+        <th>
+            @Html.ActionLink("Name", "List", new { orderby = orderbyName, page = 1 })
+            @if (Model.OrderedBy.StartsWith("name"))
+            {
+                <span>@Model.OrderedBy.Split('-')[1]</span>
+            }
+        </th>
+        <th>
+            @Html.ActionLink("Artist", "List", new { orderby = orderbyArtist, page = 1 })
+            @if (Model.OrderedBy.StartsWith("artist"))
+            {
+                <span>@Model.OrderedBy.Split('-')[1]</span>
+            }
+        </th>
+        <th>
+            @Html.ActionLink("Label", "List", new { orderby = orderbyLabel, page = 1 })
+            @if (Model.OrderedBy.StartsWith("label"))
+            {
+                <span>@Model.OrderedBy.Split('-')[1]</span>
+            }
+        </th>
+        <th>
+            @Html.ActionLink("Type", "List", new { orderby = orderbyType, page = 1 })
+            @if (Model.OrderedBy.StartsWith("type"))
+            {
+                <span>@Model.OrderedBy.Split('-')[1]</span>
+            }
+        </th>
+        <th>
+            @Html.ActionLink("Stock", "List", new { orderby = orderbyStock, page = 1 })
+            @if (Model.OrderedBy.StartsWith("stock"))
+            {
+                <span>@Model.OrderedBy.Split('-')[1]</span>
+            }
+        </th>
+
+        <th></th>
+
+    </tr>
+    @foreach (var item in Model.Albums)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Artist)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AlbumType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Label)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Stock)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "InsertOrUpdate", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete",
+                                new { id = item.Id },
+                                new { onclick = "return confirm('Are you sure you wish to delete this album?');" })
+            </td>
+        </tr>
+    }
+</table>
+
+@if (Model.TotalNumberOfPages > 1)
+{
+    if (Model.CurrentPage > 1)
+    {
+        <span class="paging">@Html.ActionLink("<", "List", new { orderby = Model.OrderedBy, page = Model.CurrentPage - 1 })</span>
+    }
+    else
+    {
+        <span class="paging"></span>
+    }
+    <span class="paging">@Model.CurrentPage</span>
+    if (Model.CurrentPage < Model.TotalNumberOfPages)
+    {
+        <span class="paging">@Html.ActionLink(">", "List", new { orderby = Model.OrderedBy, page = Model.CurrentPage + 1 })</span>
+    }
+}
+else
+{
+    <span>There are no more results...</span>
+}

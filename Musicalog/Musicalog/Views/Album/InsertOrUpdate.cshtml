@@ -1,0 +1,117 @@
+﻿@model Musicalog.Models.AlbumViewModel
+
+@{
+    ViewBag.Title = "InsertOrUpdate";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    string submitText = Model.OperationType == Musicalog.Models.AlbumViewModel.Operation.CREATE ? "Create" : "Update";
+}
+
+<h2>@submitText</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal" id="page">
+        <h4>Albums</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        @Html.HiddenFor(model => model.Album.Id)
+
+        <div class="form-group">
+            <label class="control-label col-md-2">AlbumType</label>
+            <div class="col-md-4">
+                <select class="form-control" data-bind="options: albumTypes,
+                                       optionsText: 'Value',
+                                       optionsValue: 'Key',
+                                       value: albumTypeId,
+                                       optionsCaption: 'Choose...'"></select>
+                @Html.HiddenFor(model => model.Album.AlbumTypeId, new { data_bind = "textInput: albumTypeId" })
+                @Html.ValidationMessageFor(model => model.Album.AlbumTypeId, "", new { @class = "text-danger" })
+            </div>
+
+            <label class="control-label col-md-2">Artist</label>
+            <div class="col-md-4">
+                <select class="form-control" data-bind="options: artists,
+                                       optionsText: 'Value',
+                                       optionsValue: 'Key',
+                                       value: artistId,
+                                       optionsCaption: 'Choose...'"></select>
+                @Html.HiddenFor(model => model.Album.ArtistId, new { data_bind = "textInput: artistId" })
+                @Html.ValidationMessageFor(model => model.Album.ArtistId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Label</label>
+            <div class="col-md-4">
+                <select class="form-control" data-bind="options: labels,
+                                       optionsText: 'Value',
+                                       optionsValue: 'Key',
+                                       value: labelId,
+                                       optionsCaption: 'Choose...'"></select>
+                @Html.HiddenFor(model => model.Album.LabelId, new { data_bind = "textInput: labelId" })
+                @Html.ValidationMessageFor(model => model.Album.LabelId, "", new { @class = "text-danger" })
+            </div>
+
+            <label class="control-label col-md-2">Album Name</label>
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.Album.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Album.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Stock</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Album.Stock, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Album.Stock, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-9 col-md-3">
+                <input type="submit" value="@submitText" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "List")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script src="~/Scripts/vendor/knockout-3.4.2.js"></script>
+    <script>
+
+        var ViewModel = function () {
+            var self = this;
+
+            // DATA DECLARATION AND INIT (PRE-SUBSCRIPTIONs)
+            self.albumTypes = @Html.Raw(JsonConvert.SerializeObject(Model.AlbumTypes.ToList()));
+            self.albumTypeId = ko.observable(@Model.Album.AlbumTypeId);
+            self.artists = @Html.Raw(JsonConvert.SerializeObject(Model.Artists.ToList()));
+            self.artistId = ko.observable(@Model.Album.ArtistId);
+            self.labels = @Html.Raw(JsonConvert.SerializeObject(Model.Labels.ToList()));
+            self.labelId = ko.observable(@Model.Album.LabelId);
+
+            // DATA SUBSCRIPTIONs
+
+            // FUNCTIONs
+
+            // DATA INIT (POST-SUBSCRIPTIONs)
+        }
+
+        $(document).on("ready", function () {
+            var vm = new ViewModel();
+
+            ko.applyBindings(vm, $("#page")[0]);
+        });
+    </script>
+}

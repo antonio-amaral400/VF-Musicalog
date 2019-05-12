@@ -15,7 +15,10 @@ Assumptions:
 	- Since it was not requested a CRUD for the AlbumType, these need to be altered directly at DB.
 	- AlbumType Id was considered it could would only reach low numbers so it was chosen the value tinyint (maximum value of tinyint is 255).
 	- It was assumed that a representation of the ordering is all that is needed, ignoring the UX part. The "a" and "d" by the side of the columns represents which column is being ordered and if the order is ascending or descending respectively.
+	
+Notes:
 	- The InsertOrUpdate screen's design was made to underline that I know the basics of bootstrap and not for aesthetic reasons.
+	- There is a config in WCF that lets the admin choose if the data is retrieved as is from EntityFramework default behaviour or use cache. I still thought about implementing a timeout in cache but, honestly, I did not think it would make a positive influence in the test.
 	
 Assumpções:
 	- Não há a noção de user / login.
@@ -34,4 +37,7 @@ Assumpções:
 	- Como não foi pedida um CRUD para o tipo estes terão de ser alterados directamente em BD.
 	- Id do tipo foi considerado que poderia iria ficar pelas unidades mesmo desenvolvendo novas tecnologias para o tipo e por isso foi escolhido tinyint (valor máximo de um campo tinyint 255).
 	- Somente seria necessária a indicação da ordenação e não a preocupação com o aspecto da mesma. O "a" ou "d" ao lado das colunas representa qual a coluna de ordenação e se esta é ascendente ou descendente respectivamente.
+	
+Notas:
 	- A escolha de design do ecrã de insertOrUpdate foi feita com a intenção de mostrar que percebo como funciona o básico de bootstrap e não por razões estéticas.
+	- Foi criada uma configuração no WCF que permite escolher se os dados são tratados como default do EntityFramework ou se é usado um sistema simples de cache. Ainda pensei em usar uma cache com timeout mas achei que não ia trazer mais valia para o teste em causa.

@@ -19,6 +19,7 @@ Assumptions:
 Notes:
 	- The InsertOrUpdate screen's design was made to underline that I know the basics of bootstrap and not for aesthetic reasons.
 	- There is a config in WCF that lets the admin choose if the data is retrieved as is from EntityFramework default behaviour or use cache. I still thought about implementing a timeout in cache but, honestly, I did not think it would make a positive influence in the test.
+	- In order to create the initial database there is a file inside the project GenericProjectTests called 'SQL Initializer.txt'.
 	
 Assumpções:
 	- Não há a noção de user / login.
@@ -41,3 +42,4 @@ Assumpções:
 Notas:
 	- A escolha de design do ecrã de insertOrUpdate foi feita com a intenção de mostrar que percebo como funciona o básico de bootstrap e não por razões estéticas.
 	- Foi criada uma configuração no WCF que permite escolher se os dados são tratados como default do EntityFramework ou se é usado um sistema simples de cache. Ainda pensei em usar uma cache com timeout mas achei que não ia trazer mais valia para o teste em causa.
+	- Para criar a base de dados inicial existe um ficheiro no projecto GenericProjectTests com o nome 'SQL Initializer.txt'.

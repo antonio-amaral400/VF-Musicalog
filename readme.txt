@@ -1,22 +1,3 @@
-Assumpções:
-	- Não há a noção de user / login.
-	- Por consequência o catálogo não é ao user mas sim partilhado.
-	- Foi assumido que tanto artistas como nomes dos álbuns podiam ter caracteres especiais (nomeadamente acentos) necessitando de campos nvarchar em BD.
-	- Foi assumido que 100 caracteres chegavam para o nome dos álbuns.
-	- Foi assumido que 150 caracteres chegavam para o nome do artista.
-	- Foi assumido que 50 caracteres chegavam para o nome da distribuidora.
-	- Foi assumido que criar a tabela artista seria uma mais valia por questão de consistência e possível expansão dos dados relativos ao artista. Caso não fosse considerada uma mais valia, em vez de uma nova tabela e uma FK da tabela Álbuns para a tabela Artistas seria criada apens um campo nvarchar(150).
-	- Como não foi pedida um CRUD para o Artista estes terão de ser alterados directamente em BD.
-	- Id do Artista foi considerado que poderia chegar aos milhões e por isso foi escolhido int (valor máximo de um campo int 2,147,483,647).
-	- Foi assumido que criar a tabela distribuidora seria uma mais valia por questão de consistência e possível expansão dos dados relativos à distribuidora. Caso não fosse considerada uma mais valia, em vez de uma nova tabela e uma FK da tabela Álbuns para a tabela Distribuidora seria criada apens um campo nvarchar(50).
-	- Como não foi pedida um CRUD para o distribuidora estes terão de ser alterados directamente em BD.
-	- Id da distribuidora foi considerado que poderia chegar aos milhares e por isso foi escolhido smallint (valor máximo de um campo smallint 32,767).
-	- Foi assumido que criar a tabela tipo seria uma mais valia por questão de consistência. Caso não fosse considerada uma mais valia, em vez de uma nova tabela e uma FK da tabela Álbuns para a tabela Tipo seria criada apens um campo varchar(10).
-	- Como não foi pedida um CRUD para o tipo estes terão de ser alterados directamente em BD.
-	- Id do tipo foi considerado que poderia iria ficar pelas unidades mesmo desenvolvendo novas tecnologias para o tipo e por isso foi escolhido tinyint (valor máximo de um campo tinyint 255).
-	- Somente seria necessária a indicação da ordenação e não a preocupação com o aspecto da mesma. O "a" ou "d" ao lado das colunas representa qual a coluna de ordenação e se esta é ascendente ou descendente respectivamente.
-	- A escolha de design do ecrã de insertOrUpdate foi feita com a intenção de mostrar que percebo como funciona o básico de bootstrap e não por razões estéticas.
-	
 Assumptions:
 	- There is no concept of user / login.
 	- Hence, the catalog is not for each user but generic / public.
@@ -35,3 +16,22 @@ Assumptions:
 	- AlbumType Id was considered it could would only reach low numbers so it was chosen the value tinyint (maximum value of tinyint is 255).
 	- It was assumed that a representation of the ordering is all that is needed, ignoring the UX part. The "a" and "d" by the side of the columns represents which column is being ordered and if the order is ascending or descending respectively.
 	- The InsertOrUpdate screen's design was made to underline that I know the basics of bootstrap and not for aesthetic reasons.
+	
+Assumpções:
+	- Não há a noção de user / login.
+	- Por consequência o catálogo não é ao user mas sim partilhado.
+	- Foi assumido que tanto artistas como nomes dos álbuns podiam ter caracteres especiais (nomeadamente acentos) necessitando de campos nvarchar em BD.
+	- Foi assumido que 100 caracteres chegavam para o nome dos álbuns.
+	- Foi assumido que 150 caracteres chegavam para o nome do artista.
+	- Foi assumido que 50 caracteres chegavam para o nome da distribuidora.
+	- Foi assumido que criar a tabela artista seria uma mais valia por questão de consistência e possível expansão dos dados relativos ao artista. Caso não fosse considerada uma mais valia, em vez de uma nova tabela e uma FK da tabela Álbuns para a tabela Artistas seria criada apens um campo nvarchar(150).
+	- Como não foi pedida um CRUD para o Artista estes terão de ser alterados directamente em BD.
+	- Id do Artista foi considerado que poderia chegar aos milhões e por isso foi escolhido int (valor máximo de um campo int 2,147,483,647).
+	- Foi assumido que criar a tabela distribuidora seria uma mais valia por questão de consistência e possível expansão dos dados relativos à distribuidora. Caso não fosse considerada uma mais valia, em vez de uma nova tabela e uma FK da tabela Álbuns para a tabela Distribuidora seria criada apens um campo nvarchar(50).
+	- Como não foi pedida um CRUD para o distribuidora estes terão de ser alterados directamente em BD.
+	- Id da distribuidora foi considerado que poderia chegar aos milhares e por isso foi escolhido smallint (valor máximo de um campo smallint 32,767).
+	- Foi assumido que criar a tabela tipo seria uma mais valia por questão de consistência. Caso não fosse considerada uma mais valia, em vez de uma nova tabela e uma FK da tabela Álbuns para a tabela Tipo seria criada apens um campo varchar(10).
+	- Como não foi pedida um CRUD para o tipo estes terão de ser alterados directamente em BD.
+	- Id do tipo foi considerado que poderia iria ficar pelas unidades mesmo desenvolvendo novas tecnologias para o tipo e por isso foi escolhido tinyint (valor máximo de um campo tinyint 255).
+	- Somente seria necessária a indicação da ordenação e não a preocupação com o aspecto da mesma. O "a" ou "d" ao lado das colunas representa qual a coluna de ordenação e se esta é ascendente ou descendente respectivamente.
+	- A escolha de design do ecrã de insertOrUpdate foi feita com a intenção de mostrar que percebo como funciona o básico de bootstrap e não por razões estéticas.

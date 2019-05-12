@@ -1,4 +1,5 @@
-# Assumptions:
+# EN
+## Assumptions:
 	- There is no concept of user / login.
 	- Hence, the catalog is not for each user but generic / public.
 	- It was assumed that artists and the album names could contain special characters (namely accents) making those fields nvarchar.
@@ -16,14 +17,15 @@
 	- AlbumType Id was considered it could would only reach low numbers so it was chosen the value tinyint (maximum value of tinyint is 255).
 	- It was assumed that a representation of the ordering is all that is needed, ignoring the UX part. The "a" and "d" by the side of the columns represents which column is being ordered and if the order is ascending or descending respectively.
 	
-#Notes:
+## Notes:
 	- The InsertOrUpdate screen's design was made to underline that I know the basics of bootstrap and not for aesthetic reasons.
 	- There is a config in WCF that lets the admin choose if the data is retrieved as is from EntityFramework default behaviour or use cache. I still thought about implementing a timeout in cache but, honestly, I did not think it would make a positive influence in the test.
 	- In order to create the initial database there is a file inside the project GenericProjectTests called 'SQL Initializer.txt'.
 	- I did not upgrade any of the scripts or css's of the project (namely bootstrap).
 	- The key requested for the number of results in a page is called NumberOfAlbumsPerPage.
-	
-**Assumpções:**
+
+# PT
+## Assumpções:
 	- Não há a noção de user / login.
 	- Por consequência o catálogo não é ao user mas sim partilhado.
 	- Foi assumido que tanto artistas como nomes dos álbuns podiam ter caracteres especiais (nomeadamente acentos) necessitando de campos nvarchar em BD.
@@ -40,8 +42,8 @@
 	- Como não foi pedida um CRUD para o tipo estes terão de ser alterados directamente em BD.
 	- Id do tipo foi considerado que poderia iria ficar pelas unidades mesmo desenvolvendo novas tecnologias para o tipo e por isso foi escolhido tinyint (valor máximo de um campo tinyint 255).
 	- Somente seria necessária a indicação da ordenação e não a preocupação com o aspecto da mesma. O "a" ou "d" ao lado das colunas representa qual a coluna de ordenação e se esta é ascendente ou descendente respectivamente.
-	
-# Notas:
+
+## Notas:
 	- A escolha de design do ecrã de insertOrUpdate foi feita com a intenção de mostrar que percebo como funciona o básico de bootstrap e não por razões estéticas.
 	- Foi criada uma configuração no WCF que permite escolher se os dados são tratados como default do EntityFramework ou se é usado um sistema simples de cache. Ainda pensei em usar uma cache com timeout mas achei que não ia trazer mais valia para o teste em causa.
 	- Para criar a base de dados inicial existe um ficheiro no projecto GenericProjectTests com o nome 'SQL Initializer.txt'.
